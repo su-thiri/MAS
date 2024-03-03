@@ -30,7 +30,7 @@
 
 
 
-<div class="row">
+<!-- <div class="row">
 
 
     <div class="col-sm-4 mb-3 mb-sm-0">
@@ -214,18 +214,68 @@
     </div>
 
       
-</div>
+</div> -->
+
+<form action="{% url 'create' %}" method="post">
+  {% csrf_token %} 
+
+  <fieldset>
+    <legend>Data Entry Form</legend>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name">
+    </div>
+    <div class="mb-3">
+      <label for="age" class="form-label">Age</label>
+      <input type="text" id="age" name="age" class="form-control" placeholder="Enter Age">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="text" id="email" name="email" class="form-control" placeholder="Enter Email">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="text" id="password" name="password" class="form-control" placeholder="Enter Password">
+    </div>
+    <div class="mb-3">
+      <label for="gender" class="form-label">Gender</label>
+      <input type="text" id="gender" name="gender" class="form-control" placeholder="Enter Gender">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </fieldset>
+</form>
+
+<br><br>
+
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Email</th>
+      <th scope="col">Password</th>
+      <th scope="col">Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for i in data %}
+    <tr>
+      <td> {{ i.name }} </td>
+      <td> {{ i.age }} </td>
+      <td> {{ i.email }} </td>
+      <td> {{ i.password }} </td>
+      <td> {{ i.gender }} </td>
+    </tr>
+
+  {% endfor %}
+  </tbody>
+</table>
 
 
     <footer class="py-2 my-3 ">
-      <ul class="nav justify-content-center border-bottom pb-2 mb-2">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
-      </ul>
-      <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
+      <p class="text-center text-body-secondary">© 2024 all right reserved by Thiri</p>
     </footer>
   
 
